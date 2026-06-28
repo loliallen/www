@@ -12,10 +12,13 @@ export const DEFAULT_LOCALE: Locale = "en";
  *  TODO: set this to the real production domain. */
 export const SITE_URL = "https://maximkasakin.dev";
 
-/** Display label + BCP-47 tag (used for <html lang> and hreflang). */
-export const LOCALE_META: Record<Locale, { label: string; bcp47: string }> = {
-  en: { label: "EN", bcp47: "en" },
-  ru: { label: "RU", bcp47: "ru" },
+/** Short label, native name + BCP-47 tag (used for <html lang> and hreflang). */
+export const LOCALE_META: Record<
+  Locale,
+  { label: string; name: string; bcp47: string }
+> = {
+  en: { label: "EN", name: "English", bcp47: "en" },
+  ru: { label: "RU", name: "Русский", bcp47: "ru" },
 };
 
 export function isLocale(value: string): value is Locale {
