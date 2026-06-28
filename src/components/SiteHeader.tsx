@@ -34,13 +34,15 @@ export function SiteHeader({
             className="hidden items-center gap-6 sm:flex"
           >
             {navItems.map((item) => (
-              <Link
+              // Native anchor (not next/link) so same-page section jumps use
+              // the CSS `scroll-behavior: smooth` instead of an instant push.
+              <a
                 key={item.href}
                 href={item.href}
                 className="font-mono text-sm uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </nav>
           <Link

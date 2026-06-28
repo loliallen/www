@@ -55,7 +55,7 @@ export default async function Home({
             <p className="max-w-xl text-lg leading-relaxed text-ink/80">
               {dict.hero.intro}
             </p>
-            <Link
+            <a
               href={`/${locale}#work`}
               className="group inline-flex items-center justify-center gap-3 border-2 border-ink bg-ink px-7 py-4 font-mono text-sm uppercase tracking-widest text-paper transition-colors hover:bg-chartreuse hover:text-ink"
             >
@@ -63,7 +63,7 @@ export default async function Home({
               <span className="transition-transform group-hover:translate-x-1">
                 →
               </span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
