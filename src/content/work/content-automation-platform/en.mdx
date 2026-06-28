@@ -1,0 +1,69 @@
+import { WorkflowDiagram } from "@/components/WorkflowDiagram";
+
+## The problem
+
+The product needed to generate and publish marketing content at scale, across
+many social platforms, using whichever AI model was best (and available) for the
+job. "Available" is the hard word: model providers rate-limit, degrade, and go
+down. A naive integration would stall the whole pipeline the moment one provider
+hiccuped.
+
+## What I built
+
+I designed and led the platform from scratch. The core is **ai-workflow**, an
+orchestration service that fans generation tasks out across **20 models** spanning text, image, video and audio,
+with automatic failover, request batching, and caching of intermediate results
+in Redis. When a provider degrades, traffic shifts to a healthy one without the
+user noticing.
+
+On the delivery side, a high-throughput **publishing service in Go** ships around
+**1,200 publications a day** to **8 channels** — Telegram, Facebook, VK and more.
+Publishing is idempotent: a retried job never produces a duplicate post.
+
+## The workflow engine
+
+I built the workflow engine from scratch — first on Deno (tasks fed in over
+RabbitMQ), then rebuilt on NestJS for developer ergonomics and extensibility.
+
+Each content job is a **workflow**: steps are declared as typed classes with their
+dependencies, and the engine resolves them into a DAG — a topological sort — then
+runs it level by level, independent steps in parallel and dependent ones in order.
+
+<WorkflowDiagram lang="en" />
+
+Every step's result is persisted, so the engine **resumes from the last completed
+step**: if a job crashes or is redelivered, it reloads the steps that already
+succeeded and runs only what's left — no repeated inference, no half-finished
+output. A cross-process **job-claim lock** (with a TTL) keeps runs idempotent, so
+a RabbitMQ redelivery or an ops retrigger can't double-run the same job. Tasks
+arrive over RabbitMQ through a pluggable transport adapter — HTTP works too — and
+the engine emits lifecycle events on completion for the rest of the platform to
+react to.
+
+## Making it resilient
+
+External platforms fail constantly, so the architecture assumes failure:
+
+- **Event-driven** internals on BullMQ, decoupled from the previously tangled
+  NestJS modules.
+- **RabbitMQ** with guaranteed delivery between services.
+- **Dead-letter queues**, exponential-backoff retries, and graceful degradation
+  so a single platform outage never takes the system down.
+
+## Data and visibility
+
+I unified **MongoDB** (generation results) and **SQL** (transactions, analytics)
+behind a single NestJS data layer, and built end-to-end observability:
+per-stage latency logging, inference-quality metrics, and alerting — so problems
+surface before customers report them.
+
+A single channel-authorization module absorbs the messy, per-platform OAuth flows
+(Telegram / Facebook / VK) into one maintainable connection layer.
+
+## Growing the team
+
+The role went well past the architecture. I grew the engineering team from
+**2 to 10 developers** — hiring, onboarding, and setting the technical direction
+as we scaled. I worked directly with the sales team and with partner and client
+success, so the platform's roadmap stayed tied to what actually closed deals and
+kept integrations live — not just what was technically interesting.

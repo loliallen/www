@@ -1,0 +1,33 @@
+## The problem
+
+The wallet's backend talked to blockchain nodes directly for nearly everything,
+including hot-path reads like account balances. That made it slow and fragile:
+p95 balance reads sat around **600ms**, and every user action piled more load
+onto the nodes.
+
+## What I built
+
+I designed and implemented a new **microservice backend** for the wallet
+ecosystem, with a read-through **caching layer** in front of every read-from-node
+operation — balances and everything else the wallet pulled from chain. The
+results:
+
+- Direct node requests dropped by about **60%**.
+- p95 balance-read latency fell from **~600ms to ~150ms**.
+
+I also extended the **Cosmos SDK** chain (Go) with **2 custom modules** the
+standard SDK didn't cover: an on-chain **exchange**, and a module that converted
+the chain's **native token into AI-usage tokens** — the credits users spent to
+run AI models. Both went from zero to production alongside the wallet.
+
+## Leading the team
+
+I led a team of 3 engineers and put the fundamentals in place: code review and
+CI/CD practices that cut the release cycle from **~2 weeks to ~3 days** while
+raising code quality.
+
+## A little AI where it paid off
+
+I integrated an AI assistant for common blockchain operations, which removed
+about **30%** of routine support requests and shortened the path from new user to
+first transaction.
