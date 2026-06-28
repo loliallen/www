@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "./dictionaries";
 import { projects } from "@/content/work/projects";
-import { profile } from "@/content/profile";
 import { serviceSlugs, getServiceLabels } from "@/content/services";
+import { ContactDialog } from "@/components/ContactDialog";
 
 /** Locale-independent — these are technology names. */
 const SKILLS = [
@@ -219,33 +219,18 @@ export default async function Home({
             {dict.contact.body}
           </p>
 
-          <a
-            href={`mailto:${profile.email}`}
-            className="mt-10 inline-block break-all font-display font-bold tracking-tight text-ink underline decoration-chartreuse decoration-4 underline-offset-[6px] transition-colors hover:text-accent text-[clamp(1.15rem,5vw,3rem)]"
-          >
-            {profile.email}
-          </a>
-
-          <div className="mt-12">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink/50">
-              {dict.contact.elsewhere}
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-x-8 gap-y-3">
-              {profile.links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-sm text-ink underline decoration-ink/30 decoration-2 underline-offset-4 transition-colors hover:decoration-accent"
-                  >
-                    {link.label}{" "}
-                    <span className="text-ink/50">{link.handle}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Single contact entry point — the dialog lists every channel
+              (Telegram first as fastest), so no redundant inline list. */}
+          <ContactDialog
+            labels={{
+              trigger: serviceLabels.ctaButton,
+              title: serviceLabels.contactTitle,
+              subtitle: serviceLabels.contactSubtitle,
+              close: serviceLabels.contactClose,
+              emailLabel: serviceLabels.emailLabel,
+              fastestLabel: serviceLabels.fastestLabel,
+            }}
+          />
         </div>
       </section>
     </>
