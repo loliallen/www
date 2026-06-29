@@ -32,10 +32,10 @@ export const projects: Project[] = [
     slug: "content-automation-platform",
     year: "2025",
     company: {
-      en: "Tekhnologii LLC",
-      ru: "ООО «Технологии»",
+      en: "Kineiro LLC",
+      ru: "Kineiro LLC",
     },
-    location: { en: "Kazan, RU", ru: "Казань" },
+    location: { en: "Kazakhstan", ru: "Казахстан" },
     title: {
       en: "AI content-automation platform",
       ru: "Платформа автоматизации контента на AI",

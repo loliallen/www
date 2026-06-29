@@ -40,9 +40,9 @@ const RESUME: Record<Locale, Resume> = {
       "Backend & distributed-systems engineer with nearly 7 years building scalable, high-load systems in Go and Node.js — across AI platforms, fintech and Web3. I design durable, observable services and own the technical vision end to end, and I've grown and led engineering teams (2→10). Comfortable across the stack; my center of gravity is the backend.",
     experience: [
       {
-        company: "Tekhnologii LLC",
+        company: "Kineiro LLC",
         title: "Software Architect / Tech Lead",
-        location: "Kazan, RU",
+        location: "Kazakhstan",
         period: "Feb 2025 — Present",
         context:
           "B2B SaaS platform for AI content automation and cross-platform publishing.",
@@ -113,9 +113,9 @@ const RESUME: Record<Locale, Resume> = {
       "Инженер бэкенда и распределённых систем, почти 7 лет строю масштабируемые высоконагруженные системы на Go и Node.js — для AI-платформ, финтеха и Web3. Проектирую надёжные, наблюдаемые сервисы и веду техническое видение от начала до конца; растил и вёл команды разработки (2→10). Спокойно работаю по всему стеку, но центр тяжести — бэкенд.",
     experience: [
       {
-        company: "ООО «Технологии»",
+        company: "Kineiro LLC",
         title: "Архитектор ПО / Тех-лид",
-        location: "Казань",
+        location: "Казахстан",
         period: "Февр. 2025 — наст. время",
         context:
           "B2B SaaS-платформа для AI-автоматизации контента и кросс-платформенной публикации.",
