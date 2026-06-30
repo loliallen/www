@@ -76,7 +76,7 @@ export default async function ServicePage({
       "@type": "Person",
       name: nameFor(locale),
       url: SITE_URL,
-      jobTitle: "Staff Engineer / Tech Lead",
+      jobTitle: "Staff Software Engineer",
       email: `mailto:${profile.email}`,
       sameAs: profile.links.map((l) => l.href),
     },

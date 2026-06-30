@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 /**
  * CV / résumé content — kept aligned with the website (the source of truth).
  * Rendered as a print-optimized page at /[lang]/cv; users Print → Save as PDF.
- * Leveling: positioned as Staff Engineer / Tech Lead; per-role titles are the
+ * Leveling: positioned as Staff Software Engineer (Google L6 IC rung); per-role titles are the
  * real ones from each job.
  */
 export type ResumeRole = {
@@ -34,7 +34,7 @@ export type Resume = {
 
 const RESUME: Record<Locale, Resume> = {
   en: {
-    title: "Staff Engineer / Tech Lead — Backend & Distributed Systems",
+    title: "Staff Software Engineer — Backend & Distributed Systems",
     availability: "Open to relocation & remote · English C1",
     summary:
       "Backend & distributed-systems engineer with nearly 7 years building scalable, high-load systems in Go and Node.js — across AI platforms, fintech and Web3. I design durable, observable services and own the technical vision end to end, and I've grown and led engineering teams (2→10). Comfortable across the stack; my center of gravity is the backend.",
@@ -107,7 +107,7 @@ const RESUME: Record<Locale, Resume> = {
     },
   },
   ru: {
-    title: "Staff-инженер / тех-лид — бэкенд и распределённые системы",
+    title: "Staff-инженер — бэкенд и распределённые системы",
     availability: "Готов к релокации и удалённой работе · английский C1",
     summary:
       "Инженер бэкенда и распределённых систем, почти 7 лет строю масштабируемые высоконагруженные системы на Go и Node.js — для AI-платформ, финтеха и Web3. Проектирую надёжные, наблюдаемые сервисы и веду техническое видение от начала до конца; растил и вёл команды разработки (2→10). Спокойно работаю по всему стеку, но центр тяжести — бэкенд.",

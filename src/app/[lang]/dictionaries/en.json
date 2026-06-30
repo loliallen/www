@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Maxim Kasakin — Staff Engineer / Tech Lead",
-    "description": "Backend & distributed-systems engineer and tech lead — ~7 years in Go and Node.js across AI platforms, fintech and Web3. I've grown and led engineering teams; my focus is building."
+    "title": "Maxim Kasakin — Staff Software Engineer",
+    "description": "Backend & distributed-systems engineer — ~7 years in Go and Node.js across AI platforms, fintech and Web3. I've grown and led engineering teams; my focus is building."
   },
   "nav": {
     "work": "Work",
@@ -11,7 +11,7 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "eyebrow": "Staff engineer / tech lead · backend & distributed systems",
+    "eyebrow": "Staff software engineer · backend & distributed systems",
     "lineOne": "Backends",
     "lineTwo": "that survive",
     "lineThree": "the load.",
