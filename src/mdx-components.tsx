@@ -3,7 +3,7 @@ import type { MDXComponents } from "mdx/types";
 /**
  * Styling for MDX content (case studies). These map raw markdown elements to
  * the editorial design system so written content inherits the site's voice
- * without per-file styling. Tailwind classes only — tokens live in globals.css.
+ * without per-file styling. Tailwind classes only - tokens live in globals.css.
  */
 const components: MDXComponents = {
   h1: ({ children }) => (

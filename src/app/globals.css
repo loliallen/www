@@ -2,7 +2,7 @@
 
 /*
   Maximal-editorial design system.
-  Palette: near-black ink, warm-white paper, chartreuse (fills only — too low
+  Palette: near-black ink, warm-white paper, chartreuse (fills only - too low
   contrast for text), deep plum (interactive accent on light backgrounds).
 */
 @theme inline {
@@ -38,7 +38,7 @@ body {
   color: var(--color-ink);
 }
 
-/* Visible keyboard focus — quality floor, not optional. */
+/* Visible keyboard focus - quality floor, not optional. */
 :focus-visible {
   outline: 3px solid var(--color-plum);
   outline-offset: 3px;

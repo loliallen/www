@@ -6,7 +6,7 @@ import { projects } from "@/content/work/projects";
 import { serviceSlugs, getServiceLabels } from "@/content/services";
 import { ContactDialog } from "@/components/ContactDialog";
 
-/** Locale-independent — these are technology names. */
+/** Locale-independent - these are technology names. */
 const SKILLS = [
   "Go",
   "TypeScript",
@@ -166,7 +166,7 @@ export default async function Home({
         </div>
       </section>
 
-      {/* ── Services (secondary — "also available for") ──────────────── */}
+      {/* ── Services (secondary - "also available for") ──────────────── */}
       <section id="services" className="scroll-mt-20 border-b-2 border-ink">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
@@ -219,7 +219,7 @@ export default async function Home({
             {dict.contact.body}
           </p>
 
-          {/* Single contact entry point — the dialog lists every channel
+          {/* Single contact entry point - the dialog lists every channel
               (Telegram first as fastest), so no redundant inline list. */}
           <ContactDialog
             labels={{

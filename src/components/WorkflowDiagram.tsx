@@ -43,7 +43,7 @@ const L: Record<
     cache1: "Step cache",
     cache2: "Postgres",
     persist: "persist each step",
-    resume: "resume — skip completed",
+    resume: "resume - skip completed",
   },
   ru: {
     aria: "Архитектура движка контент-воркфлоу: приём из RabbitMQ, идемпотентный лок задачи, DAG-движок с параллельными уровнями шагов и кэшем шагов в Postgres для резюма, события жизненного цикла на выход.",
@@ -62,7 +62,7 @@ const L: Record<
     cache1: "Кэш шагов",
     cache2: "Postgres",
     persist: "сохраняю шаг",
-    resume: "резюм — пропуск готовых",
+    resume: "резюм - пропуск готовых",
   },
 };
 
@@ -181,7 +181,7 @@ export function WorkflowDiagram({ lang }: { lang: Locale }) {
         <line x1={460} y1={470} x2={460} y2={497} stroke={INK} strokeWidth={2} markerEnd="url(#wd-ah)" />
         <text x={452} y={488} textAnchor="end" fontFamily={mono} fontSize={8.5} fill={INK} opacity={0.7}>{t.persist}</text>
 
-        {/* resume (cache → engine) — the hero, highlighted */}
+        {/* resume (cache → engine) - the hero, highlighted */}
         <line x1={596} y1={500} x2={596} y2={473} stroke={PLUM} strokeWidth={2.5} markerEnd="url(#wd-ah-plum)" />
         <rect x={606} y={479} width={150} height={17} fill={CHART} />
         <text x={612} y={491} textAnchor="start" fontFamily={mono} fontSize={9} fontWeight={700} fill={INK}>{t.resume}</text>

@@ -1,14 +1,14 @@
 /**
  * Single source of truth for locales. Add a language here, add its dictionary
  * (src/app/[lang]/dictionaries/<code>.json) and its translated MDX, and the
- * rest of the site picks it up — routing, metadata, the language switcher.
+ * rest of the site picks it up - routing, metadata, the language switcher.
  */
 export const LOCALES = ["en", "ru"] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = "en";
 
-/** Canonical site origin — used for metadata, sitemap, robots, JSON-LD.
+/** Canonical site origin - used for metadata, sitemap, robots, JSON-LD.
  *  TODO: set this to the real production domain. */
 export const SITE_URL = "https://maximkasakin.dev";
 

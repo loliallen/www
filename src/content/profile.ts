@@ -1,7 +1,7 @@
 import type { Locale } from "@/i18n/config";
 
 /**
- * Identity + contact links. Single source of truth — used by the wordmark,
+ * Identity + contact links. Single source of truth - used by the wordmark,
  * contact section, footer, and metadata. Locale-independent values (handles,
  * URLs) live here; translated copy lives in the dictionaries.
  */

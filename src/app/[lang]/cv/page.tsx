@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!isLocale(lang)) return {};
-  return { title: `${nameFor(lang)} — CV` };
+  return { title: `${nameFor(lang)} - CV` };
 }
 
 export default async function CVPage({
@@ -29,7 +29,7 @@ export default async function CVPage({
 
   return (
     <article className="mx-auto my-8 max-w-3xl bg-white px-6 py-10 text-ink shadow-sm sm:px-10 print:my-0 print:max-w-none print:px-0 print:py-0 print:shadow-none">
-      {/* Actions — screen only */}
+      {/* Actions - screen only */}
       <div className="mb-8 flex items-center justify-between print:hidden">
         <Link
           href={`/${locale}`}

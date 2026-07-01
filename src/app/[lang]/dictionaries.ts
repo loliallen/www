@@ -2,7 +2,7 @@ import "server-only";
 import type { Locale } from "@/i18n/config";
 import type en from "./dictionaries/en.json";
 
-/** The dictionary shape is inferred from the English file — the canonical one. */
+/** The dictionary shape is inferred from the English file - the canonical one. */
 export type Dictionary = typeof en;
 
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {

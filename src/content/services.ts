@@ -50,15 +50,15 @@ const SERVICES: Record<Locale, Service[]> = {
   en: [
     {
       slug: "backend-distributed-systems",
-      metaTitle: "Backend & Distributed Systems Engineering — Maxim Kasakin",
+      metaTitle: "Backend & Distributed Systems Engineering - Maxim Kasakin",
       metaDescription:
-        "Senior backend engineering for scalable, high-load systems in Go and Node.js — microservices, message queues, caching and observability. Available for contract and advisory work.",
+        "Senior backend engineering for scalable, high-load systems in Go and Node.js - microservices, message queues, caching and observability. Available for contract and advisory work.",
       h1: "Backend & Distributed Systems",
       tagline:
-        "Scalable, high-load services in Go and Node.js — built to hold under pressure.",
+        "Scalable, high-load services in Go and Node.js - built to hold under pressure.",
       serviceType: "Backend & distributed systems engineering",
       intro:
-        "I design and build backend systems that stay fast and correct as they grow: microservices, event-driven architectures, caching layers and the observability to run them in production. Nearly 7 years across AI platforms, fintech and Web3 — most recently leading a platform from zero to production.",
+        "I design and build backend systems that stay fast and correct as they grow: microservices, event-driven architectures, caching layers and the observability to run them in production. Nearly 7 years across AI platforms, fintech and Web3 - most recently leading a platform from zero to production.",
       offerings: [
         {
           title: "Microservice architecture",
@@ -74,7 +74,7 @@ const SERVICES: Record<Locale, Service[]> = {
         },
         {
           title: "Reliability",
-          body: "Idempotency, retries with backoff, durable and resumable workflows, and end-to-end observability — so the system doesn't page you at 3am.",
+          body: "Idempotency, retries with backoff, durable and resumable workflows, and end-to-end observability - so the system doesn't page you at 3am.",
         },
       ],
       proof:
@@ -98,19 +98,19 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "ai-platforms-orchestration",
-      metaTitle: "AI Platform & Workflow Orchestration Engineering — Maxim Kasakin",
+      metaTitle: "AI Platform & Workflow Orchestration Engineering - Maxim Kasakin",
       metaDescription:
-        "Build durable AI workflow engines and multi-model orchestration pipelines — LLM, image, video and audio — with failover, resume-from-checkpoint and idempotent delivery.",
+        "Build durable AI workflow engines and multi-model orchestration pipelines - LLM, image, video and audio - with failover, resume-from-checkpoint and idempotent delivery.",
       h1: "AI Platforms & Orchestration",
       tagline:
         "Durable, multi-model AI pipelines that don't fall over when a provider does.",
       serviceType: "AI platform & workflow orchestration engineering",
       intro:
-        "I build the backend behind AI products: orchestration engines that route work across many models, survive provider failures, and never lose or duplicate a job. I designed and led an AI content-automation platform from scratch — including its workflow engine.",
+        "I build the backend behind AI products: orchestration engines that route work across many models, survive provider failures, and never lose or duplicate a job. I designed and led an AI content-automation platform from scratch - including its workflow engine.",
       offerings: [
         {
           title: "Workflow & orchestration engines",
-          body: "DAG-based execution with parallel steps, persistent state and resume-from-checkpoint — jobs continue from the last completed step after a crash instead of restarting from zero.",
+          body: "DAG-based execution with parallel steps, persistent state and resume-from-checkpoint - jobs continue from the last completed step after a crash instead of restarting from zero.",
         },
         {
           title: "Multi-model routing & failover",
@@ -126,7 +126,7 @@ const SERVICES: Record<Locale, Service[]> = {
         },
       ],
       proof:
-        "I built a workflow engine (first Deno, then NestJS) orchestrating 20 models across text, image, video and audio, shipping ~1,200 publications a day to 8 social channels — with automatic failover and durable resume.",
+        "I built a workflow engine (first Deno, then NestJS) orchestrating 20 models across text, image, video and audio, shipping ~1,200 publications a day to 8 social channels - with automatic failover and durable resume.",
       proofLink: {
         slug: "content-automation-platform",
         label: "See the platform case study",
@@ -144,14 +144,14 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "blockchain-web3",
-      metaTitle: "Blockchain & Web3 Backend Engineering — Maxim Kasakin",
+      metaTitle: "Blockchain & Web3 Backend Engineering - Maxim Kasakin",
       metaDescription:
         "Wallet backends, custom Cosmos SDK modules, smart-contract integration and on-chain exchanges. Go and Web3 engineering for production crypto products.",
       h1: "Blockchain & Web3",
-      tagline: "Production-grade crypto backends — wallets, chains and on-chain exchange.",
+      tagline: "Production-grade crypto backends - wallets, chains and on-chain exchange.",
       serviceType: "Blockchain & Web3 backend engineering",
       intro:
-        "I build the backend and integration layers behind crypto products: wallet services, custom chain modules and the bridges between apps and smart contracts — with the caching and reliability real users need.",
+        "I build the backend and integration layers behind crypto products: wallet services, custom chain modules and the bridges between apps and smart contracts - with the caching and reliability real users need.",
       offerings: [
         {
           title: "Wallet & chain backends",
@@ -159,7 +159,7 @@ const SERVICES: Record<Locale, Service[]> = {
         },
         {
           title: "Smart-contract integration",
-          body: "Integration layers between apps and Ethereum or Cosmos contracts — bids, transfers, NFT minting (including batch) and on-chain exchanges (e.g. Wyvern).",
+          body: "Integration layers between apps and Ethereum or Cosmos contracts - bids, transfers, NFT minting (including batch) and on-chain exchanges (e.g. Wyvern).",
         },
         {
           title: "Performance for on-chain data",
@@ -167,7 +167,7 @@ const SERVICES: Record<Locale, Service[]> = {
         },
         {
           title: "Exchanges & tokenomics",
-          body: "On-chain exchange modules and token mechanics — for example, converting a native token into usage credits.",
+          body: "On-chain exchange modules and token mechanics - for example, converting a native token into usage credits.",
         },
       ],
       proof:
@@ -191,15 +191,15 @@ const SERVICES: Record<Locale, Service[]> = {
   ru: [
     {
       slug: "backend-distributed-systems",
-      metaTitle: "Бэкенд и распределённые системы — Максим Касакин",
+      metaTitle: "Бэкенд и распределённые системы - Максим Касакин",
       metaDescription:
-        "Senior-разработка бэкенда для масштабируемых высоконагруженных систем на Go и Node.js — микросервисы, очереди, кэширование, наблюдаемость. Открыт к проектной и консультационной работе.",
+        "Senior-разработка бэкенда для масштабируемых высоконагруженных систем на Go и Node.js - микросервисы, очереди, кэширование, наблюдаемость. Открыт к проектной и консультационной работе.",
       h1: "Бэкенд и распределённые системы",
       tagline:
-        "Масштабируемые высоконагруженные сервисы на Go и Node.js — держат нагрузку.",
+        "Масштабируемые высоконагруженные сервисы на Go и Node.js - держат нагрузку.",
       serviceType: "Разработка бэкенда и распределённых систем",
       intro:
-        "Проектирую и строю backend-системы, которые остаются быстрыми и корректными по мере роста: микросервисы, событийные архитектуры, слои кэширования и наблюдаемость для эксплуатации в продакшене. Почти 7 лет — в AI-платформах, финтехе и Web3, последнее — платформа от нуля до продакшена.",
+        "Проектирую и строю backend-системы, которые остаются быстрыми и корректными по мере роста: микросервисы, событийные архитектуры, слои кэширования и наблюдаемость для эксплуатации в продакшене. Почти 7 лет - в AI-платформах, финтехе и Web3, последнее - платформа от нуля до продакшена.",
       offerings: [
         {
           title: "Микросервисная архитектура",
@@ -215,7 +215,7 @@ const SERVICES: Record<Locale, Service[]> = {
         },
         {
           title: "Надёжность",
-          body: "Идемпотентность, ретраи с backoff, надёжные и возобновляемые воркфлоу и сквозная наблюдаемость — чтобы система не будила вас в три ночи.",
+          body: "Идемпотентность, ретраи с backoff, надёжные и возобновляемые воркфлоу и сквозная наблюдаемость - чтобы система не будила вас в три ночи.",
         },
       ],
       proof:
@@ -239,19 +239,19 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "ai-platforms-orchestration",
-      metaTitle: "AI-платформы и оркестрация воркфлоу — Максим Касакин",
+      metaTitle: "AI-платформы и оркестрация воркфлоу - Максим Касакин",
       metaDescription:
-        "Надёжные движки AI-воркфлоу и мультимодельные пайплайны — LLM, изображения, видео и аудио — с фейловером, резюмом по чекпойнтам и идемпотентной доставкой.",
+        "Надёжные движки AI-воркфлоу и мультимодельные пайплайны - LLM, изображения, видео и аудио - с фейловером, резюмом по чекпойнтам и идемпотентной доставкой.",
       h1: "AI-платформы и оркестрация",
       tagline:
         "Надёжные мультимодельные AI-пайплайны, которые не падают вслед за провайдером.",
       serviceType: "Разработка AI-платформ и оркестрации воркфлоу",
       intro:
-        "Строю бэкенд за AI-продуктами: движки оркестрации, распределяющие работу между множеством моделей, переживающие сбои провайдеров и никогда не теряющие и не дублирующие задачу. Спроектировал и возглавил AI-платформу автоматизации контента с нуля — вместе с её движком воркфлоу.",
+        "Строю бэкенд за AI-продуктами: движки оркестрации, распределяющие работу между множеством моделей, переживающие сбои провайдеров и никогда не теряющие и не дублирующие задачу. Спроектировал и возглавил AI-платформу автоматизации контента с нуля - вместе с её движком воркфлоу.",
       offerings: [
         {
           title: "Движки воркфлоу и оркестрации",
-          body: "Выполнение на основе DAG с параллельными шагами, персистентным состоянием и резюмом по чекпойнтам — задачи продолжаются с последнего успешного шага, а не с нуля.",
+          body: "Выполнение на основе DAG с параллельными шагами, персистентным состоянием и резюмом по чекпойнтам - задачи продолжаются с последнего успешного шага, а не с нуля.",
         },
         {
           title: "Роутинг моделей и фейловер",
@@ -259,15 +259,15 @@ const SERVICES: Record<Locale, Service[]> = {
         },
         {
           title: "Идемпотентная надёжная доставка",
-          body: "Локи задач и идемпотентная обработка — ретраи и повторные доставки никогда не запускают задачу дважды и не дублируют результат.",
+          body: "Локи задач и идемпотентная обработка - ретраи и повторные доставки никогда не запускают задачу дважды и не дублируют результат.",
         },
         {
           title: "Наблюдаемость стоимости и качества",
-          body: "Задержки по этапам, метрики качества инференса и алертинг — чтобы AI-пайплайн был быстрым, дешёвым и отлаживаемым.",
+          body: "Задержки по этапам, метрики качества инференса и алертинг - чтобы AI-пайплайн был быстрым, дешёвым и отлаживаемым.",
         },
       ],
       proof:
-        "Я построил движок воркфлоу (сначала Deno, затем NestJS), оркестрирующий 20 моделей для текста, изображений, видео и аудио и публикующий ~1 200 материалов в день в 8 соцканалов — с автофейловером и надёжным резюмом.",
+        "Я построил движок воркфлоу (сначала Deno, затем NestJS), оркестрирующий 20 моделей для текста, изображений, видео и аудио и публикующий ~1 200 материалов в день в 8 соцканалов - с автофейловером и надёжным резюмом.",
       proofLink: {
         slug: "content-automation-platform",
         label: "Смотреть кейс платформы",
@@ -285,14 +285,14 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "blockchain-web3",
-      metaTitle: "Блокчейн и Web3 бэкенд — Максим Касакин",
+      metaTitle: "Блокчейн и Web3 бэкенд - Максим Касакин",
       metaDescription:
         "Бэкенды кошельков, кастомные модули Cosmos SDK, интеграция смарт-контрактов и ончейн-биржи. Go и Web3 для продакшен крипто-продуктов.",
       h1: "Блокчейн и Web3",
-      tagline: "Продакшен крипто-бэкенды — кошельки, сети и ончейн-обмен.",
+      tagline: "Продакшен крипто-бэкенды - кошельки, сети и ончейн-обмен.",
       serviceType: "Разработка блокчейн- и Web3-бэкенда",
       intro:
-        "Строю бэкенд и слои интеграции за крипто-продуктами: сервисы кошельков, кастомные модули сети и мосты между приложениями и смарт-контрактами — с кэшированием и надёжностью, которые нужны реальным пользователям.",
+        "Строю бэкенд и слои интеграции за крипто-продуктами: сервисы кошельков, кастомные модули сети и мосты между приложениями и смарт-контрактами - с кэшированием и надёжностью, которые нужны реальным пользователям.",
       offerings: [
         {
           title: "Бэкенды кошельков и сетей",
@@ -300,7 +300,7 @@ const SERVICES: Record<Locale, Service[]> = {
         },
         {
           title: "Интеграция смарт-контрактов",
-          body: "Слои интеграции между приложениями и контрактами Ethereum или Cosmos — ставки, переводы, минтинг NFT (в т.ч. пакетный) и ончейн-биржи (например, Wyvern).",
+          body: "Слои интеграции между приложениями и контрактами Ethereum или Cosmos - ставки, переводы, минтинг NFT (в т.ч. пакетный) и ончейн-биржи (например, Wyvern).",
         },
         {
           title: "Производительность ончейн-данных",
@@ -308,7 +308,7 @@ const SERVICES: Record<Locale, Service[]> = {
         },
         {
           title: "Биржи и токеномика",
-          body: "Ончейн-модули обмена и механика токенов — например, конвертация нативного токена в кредиты на использование.",
+          body: "Ончейн-модули обмена и механика токенов - например, конвертация нативного токена в кредиты на использование.",
         },
       ],
       proof:
@@ -339,16 +339,16 @@ const LABELS: Record<Locale, ServiceLabels> = {
     stackTitle: "Stack",
     ctaTitle: "Start a project",
     ctaBody:
-      "Open to contract and advisory work — and full-time roles. Tell me what you're building.",
+      "Open to contract and advisory work - and full-time roles. Tell me what you're building.",
     ctaButton: "Get in touch",
     backToServices: "All services",
     indexEyebrow: "Work with me",
     indexTitle: "Services",
     indexLead:
-      "Areas I take on for contract and advisory work — each grounded in real production experience.",
+      "Areas I take on for contract and advisory work - each grounded in real production experience.",
     learnMore: "Learn more",
     contactTitle: "Let's talk",
-    contactSubtitle: "Reach me on any of these — I usually reply within a day.",
+    contactSubtitle: "Reach me on any of these - I usually reply within a day.",
     contactClose: "Close",
     emailLabel: "Email",
     fastestLabel: "Fastest",
@@ -360,16 +360,16 @@ const LABELS: Record<Locale, ServiceLabels> = {
     stackTitle: "Стек",
     ctaTitle: "Начать проект",
     ctaBody:
-      "Открыт к проектной и консультационной работе — и к фулл-тайму. Расскажите, что вы строите.",
+      "Открыт к проектной и консультационной работе - и к фулл-тайму. Расскажите, что вы строите.",
     ctaButton: "Связаться",
     backToServices: "Все услуги",
     indexEyebrow: "Работа со мной",
     indexTitle: "Услуги",
     indexLead:
-      "Направления, которые беру в проектной и консультационной работе — каждое основано на реальном продакшен-опыте.",
+      "Направления, которые беру в проектной и консультационной работе - каждое основано на реальном продакшен-опыте.",
     learnMore: "Подробнее",
     contactTitle: "Давайте поговорим",
-    contactSubtitle: "Пишите в любой из каналов — обычно отвечаю в течение дня.",
+    contactSubtitle: "Пишите в любой из каналов - обычно отвечаю в течение дня.",
     contactClose: "Закрыть",
     emailLabel: "Почта",
     fastestLabel: "Быстрее всего",

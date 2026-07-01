@@ -20,8 +20,8 @@ export async function generateMetadata({
   const t = getServiceLabels(lang);
   const title =
     lang === "en"
-      ? "Services — Backend, AI & Web3 Engineering | Maxim Kasakin"
-      : "Услуги — бэкенд, AI и Web3 | Максим Касакин";
+      ? "Services - Backend, AI & Web3 Engineering | Maxim Kasakin"
+      : "Услуги - бэкенд, AI и Web3 | Максим Касакин";
   return {
     title,
     description: t.indexLead,

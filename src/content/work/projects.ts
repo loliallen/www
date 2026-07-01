@@ -45,8 +45,8 @@ export const projects: Project[] = [
       ru: "Архитектор ПО / Тех-лид",
     },
     summary: {
-      en: "A B2B SaaS platform that orchestrates 20 models across text, image, video and audio, shipping ~1,200 publications a day to 8 channels — designed and led from scratch.",
-      ru: "B2B SaaS-платформа, которая оркестрирует 20 моделей для текста, изображений, видео и аудио и публикует ~1 200 материалов в день в 8 каналах — спроектирована и возглавлена с нуля.",
+      en: "A B2B SaaS platform that orchestrates 20 models across text, image, video and audio, shipping ~1,200 publications a day to 8 channels - designed and led from scratch.",
+      ru: "B2B SaaS-платформа, которая оркестрирует 20 моделей для текста, изображений, видео и аудио и публикует ~1 200 материалов в день в 8 каналах - спроектирована и возглавлена с нуля.",
     },
     stack: [
       "Go",
@@ -70,8 +70,8 @@ export const projects: Project[] = [
       {
         value: "1,200/day",
         label: {
-          en: "publications, idempotent — no dupes",
-          ru: "публикаций, идемпотентно — без дублей",
+          en: "publications, idempotent - no dupes",
+          ru: "публикаций, идемпотентно - без дублей",
         },
       },
       {
@@ -82,7 +82,7 @@ export const projects: Project[] = [
   },
   {
     slug: "blockchain-wallet-backend",
-    year: "2023–2025",
+    year: "2023-2025",
     company: { en: "NGINE-LTD", ru: "NGINE-LTD" },
     location: { en: "Geneva, CH", ru: "Женева" },
     title: {
@@ -120,14 +120,14 @@ export const projects: Project[] = [
         value: "−30%",
         label: {
           en: "support load, via an in-wallet AI assistant",
-          ru: "нагрузки на поддержку — AI-ассистент в кошельке",
+          ru: "нагрузки на поддержку - AI-ассистент в кошельке",
         },
       },
     ],
   },
   {
     slug: "nft-marketplace-dapp",
-    year: "2021–2022",
+    year: "2021-2022",
     company: { en: "Club1111", ru: "Club1111" },
     location: { en: "Los Angeles, US", ru: "Лос-Анджелес" },
     title: {
@@ -139,8 +139,8 @@ export const projects: Project[] = [
       ru: "Full-stack разработчик",
     },
     summary: {
-      en: "Frontend architecture and NFT minting for a Web3 marketplace, plus the integration layer wiring the UI to a Wyvern-based on-chain exchange — minting, bids and transfers.",
-      ru: "Frontend-архитектура и минтинг NFT для Web3-маркетплейса, плюс слой интеграции UI с ончейн-биржей на Wyvern — минтинг, ставки и передача активов.",
+      en: "Frontend architecture and NFT minting for a Web3 marketplace, plus the integration layer wiring the UI to a Wyvern-based on-chain exchange - minting, bids and transfers.",
+      ru: "Frontend-архитектура и минтинг NFT для Web3-маркетплейса, плюс слой интеграции UI с ончейн-биржей на Wyvern - минтинг, ставки и передача активов.",
     },
     stack: [
       "React",
@@ -162,7 +162,7 @@ export const projects: Project[] = [
       },
       {
         value: "Wyvern",
-        label: { en: "exchange protocol — OpenSea's", ru: "протокол обмена — как у OpenSea" },
+        label: { en: "exchange protocol - OpenSea's", ru: "протокол обмена - как у OpenSea" },
       },
     ],
   },

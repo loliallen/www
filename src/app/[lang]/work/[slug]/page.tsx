@@ -12,7 +12,7 @@ export function generateStaticParams() {
 }
 
 /** Load the case-study body for a locale, falling back to English if the
- *  translation doesn't exist yet — so a missing RU file never 404s. */
+ *  translation doesn't exist yet - so a missing RU file never 404s. */
 async function loadBody(slug: string, locale: Locale) {
   try {
     return (await import(`@/content/work/${slug}/${locale}.mdx`)).default;
@@ -31,7 +31,7 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: `${project.title[lang]} — ${project.role[lang]}`,
+    title: `${project.title[lang]} - ${project.role[lang]}`,
     description: project.summary[lang],
   };
 }
@@ -70,7 +70,7 @@ export default async function CaseStudyPage({
           {dict.work.roleLabel}: {project.role[locale]}
         </p>
 
-        {/* Metric strip — the signature device, repeated per project. */}
+        {/* Metric strip - the signature device, repeated per project. */}
         <dl className="mt-8 grid grid-cols-1 gap-px overflow-hidden border-2 border-ink bg-ink sm:grid-cols-3">
           {project.metrics.map((m) => (
             <div key={m.value} className="bg-paper p-4">

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Maxim Kasakin — Staff Software Engineer",
-    "description": "Backend & distributed-systems engineer — ~7 years in Go and Node.js across AI platforms, fintech and Web3. I've grown and led engineering teams; my focus is building."
+    "title": "Maxim Kasakin - Staff Software Engineer",
+    "description": "Backend & distributed-systems engineer - ~7 years in Go and Node.js across AI platforms, fintech and Web3. I've grown and led engineering teams; my focus is building."
   },
   "nav": {
     "work": "Work",
@@ -15,17 +15,17 @@
     "lineOne": "Backends",
     "lineTwo": "that survive",
     "lineThree": "the load.",
-    "intro": "Nearly 7 years building distributed, high-load backend systems — for AI platforms, fintech and Web3 products across Russia, Switzerland and the US. Microservices in Go and Node.js, owned from zero to production, with the queues, caches and observability that keep them standing.",
+    "intro": "Nearly 7 years building distributed, high-load backend systems - for AI platforms, fintech and Web3 products across Russia, Switzerland and the US. Microservices in Go and Node.js, owned from zero to production, with the queues, caches and observability that keep them standing.",
     "cta": "See the work"
   },
   "metrics": {
     "label": "By the numbers",
     "items": [
-      { "value": "−60%", "label": "fewer direct blockchain-node calls — custom cache layer" },
+      { "value": "−60%", "label": "fewer direct blockchain-node calls - custom cache layer" },
       { "value": "4× faster", "label": "p95 balance reads, 600→150ms after redesign" },
       { "value": "~7 yrs", "label": "building high-load distributed systems" },
-      { "value": "1,200/day", "label": "publications, idempotent — zero duplicates on retry" },
-      { "value": "20 models", "label": "text, image, video & audio — failover built in" },
+      { "value": "1,200/day", "label": "publications, idempotent - zero duplicates on retry" },
+      { "value": "20 models", "label": "text, image, video & audio - failover built in" },
       { "value": "2w→3d", "label": "release cycle, after a CI/CD overhaul" }
     ]
   },
@@ -43,27 +43,27 @@
   "about": {
     "label": "About",
     "heading": "How I work",
-    "body": "I build backend and distributed systems and carry the technical vision end to end — microservices, message queues, caching layers, observability. I care about the parts that don't demo well: idempotency, graceful degradation, dead-letter queues, the 3am pager that never goes off. I've also led: I grew the engineering team from 2 to 10, owned the technical direction, and worked directly with sales and clients — so I build with the business in view, not just the spec. But my center of gravity is the code. I work in Go and Node.js, and I'm comfortable across the stack when it earns its keep — React, Next.js, even Solidity and Electron. English C1, open to relocation and remote.",
+    "body": "I build backend and distributed systems and carry the technical vision end to end - microservices, message queues, caching layers, observability. I care about the parts that don't demo well: idempotency, graceful degradation, dead-letter queues, the 3am pager that never goes off. I've also led: I grew the engineering team from 2 to 10, owned the technical direction, and worked directly with sales and clients - so I build with the business in view, not just the spec. But my center of gravity is the code. I work in Go and Node.js, and I'm comfortable across the stack when it earns its keep - React, Next.js, even Solidity and Electron. English C1, open to relocation and remote.",
     "skillsLabel": "Working with"
   },
   "services": {
     "label": "Work with me",
     "heading": "Also available for select work",
-    "intro": "I'm open to full-time roles — and I take on a limited number of contract and advisory engagements.",
+    "intro": "I'm open to full-time roles - and I take on a limited number of contract and advisory engagements.",
     "items": [
       {
         "title": "Backend & distributed systems",
-        "body": "Scalable, high-load services in Go and Node.js — microservices, queues, caching, observability. Systems that hold under load and don't page you at 3am.",
+        "body": "Scalable, high-load services in Go and Node.js - microservices, queues, caching, observability. Systems that hold under load and don't page you at 3am.",
         "tag": "−60% node load · 600→150ms p95"
       },
       {
         "title": "AI platforms & orchestration",
-        "body": "Durable workflow engines and multi-model AI pipelines — text, image, video and audio, with failover, resume-from-checkpoint and idempotent delivery.",
+        "body": "Durable workflow engines and multi-model AI pipelines - text, image, video and audio, with failover, resume-from-checkpoint and idempotent delivery.",
         "tag": "20+ models · 1,200/day"
       },
       {
         "title": "Blockchain & Web3",
-        "body": "Wallet backends, custom Cosmos SDK modules, smart-contract integration and on-chain exchanges — from node-caching layers to NFT minting and marketplaces.",
+        "body": "Wallet backends, custom Cosmos SDK modules, smart-contract integration and on-chain exchanges - from node-caching layers to NFT minting and marketplaces.",
         "tag": "Cosmos SDK · Ethereum · Wyvern"
       }
     ]
