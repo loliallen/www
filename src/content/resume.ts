@@ -57,7 +57,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "NGINE-LTD",
-        title: "Lead Software Engineer / Team Lead",
+        title: "Web Development Team Lead",
         location: "Geneva, CH",
         period: "Feb 2023 — Feb 2025",
         context: "Blockchain wallet ecosystem (international).",
@@ -72,7 +72,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "Club1111",
-        title: "Full-stack Developer",
+        title: "Technical Lead",
         location: "Los Angeles, US",
         period: "Sep 2021 — Oct 2022",
         context: "NFT marketplace and Web3 platform.",
@@ -130,7 +130,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "NGINE-LTD",
-        title: "Ведущий инженер / Тимлид",
+        title: "Тимлид веб-разработки",
         location: "Женева",
         period: "Февр. 2023 — Февр. 2025",
         context: "Международная блокчейн-компания, экосистема кошелька.",
@@ -145,7 +145,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "Club1111",
-        title: "Full-stack разработчик",
+        title: "Технический лид",
         location: "Лос-Анджелес",
         period: "Сент. 2021 — Окт. 2022",
         context: "NFT-маркетплейс и Web3-платформа.",
