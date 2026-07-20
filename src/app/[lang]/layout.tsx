@@ -61,6 +61,9 @@ export async function generateMetadata({
       locale: LOCALE_META[lang].bcp47,
       type: "website",
     },
+    other: {
+      "yandex-verification": "56ede2e64ecf31fb"
+    }
   };
 }
 
