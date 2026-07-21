@@ -141,7 +141,20 @@ const RESUME: Record<Locale, Resume> = {
           "Интегрировал AI-ассистента в кошелёк для типовых операций - снял ~30% рутинных обращений в поддержку.",
         ],
         stack:
-          "Go · Cosmos SDK · NestJS · gRPC · MongoDB · React · Electron · Kubernetes",
+          "Go · Cosmos SDK · NestJS · Node.js · gRPC · MongoDB · React · Electron · Kubernetes",
+      },
+      {
+        company: "Датаюниверс",
+        title: "Fullstack Разработчик",
+        location: "Москва",
+        period: "Март 2023 — Июль 2024",
+        context: "ERP системы и бизнес-решения в формацевтической сфере",
+        bullets: [
+          'ERP система: Перенос state-managment\'а с MobX на RTK , снизил время поставки новых модулей',
+          'Разработка системы сборки и доставки регульярных отчетов на основе данных из фидов контрагентов',
+          'Рефакторинг legacy сервисов'
+        ],
+        stack: 'React · Next.js · TypeScript · NestJS · Node.js · Docker · Redis · PostgreSQL',
       },
       {
         company: "Club1111",
