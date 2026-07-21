@@ -32,10 +32,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const project of projects) {
     for (const l of LOCALES) {
       entries.push({
-        url: `${SITE_URL}/${l}/work/${project.slug}`,
+        url: `${SITE_URL}/${l}/experience/${project.slug}`,
         changeFrequency: "monthly",
         priority: 0.8,
-        alternates: alternates((loc) => `/${loc}/work/${project.slug}`),
+        alternates: alternates((loc) => `/${loc}/experience/${project.slug}`),
       });
     }
   }

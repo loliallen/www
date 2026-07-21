@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "../../dictionaries";
 import { projects, getProject } from "@/content/work/projects";
+import { metadataFor } from "@/site/metadata";
 
 export const dynamicParams = false;
 
@@ -30,10 +31,11 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
   const project = getProject(slug);
   if (!project) return {};
-  return {
+  return metadataFor("experienceItem", lang, {
+    slug,
     title: `${project.title[lang]} - ${project.role[lang]}`,
     description: project.summary[lang],
-  };
+  });
 }
 
 export default async function CaseStudyPage({
@@ -53,7 +55,7 @@ export default async function CaseStudyPage({
   return (
     <article className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
       <Link
-        href={`/${locale}#work`}
+        href={`/${locale}/experience`}
         className="font-mono text-sm uppercase tracking-widest text-ink/60 transition-colors hover:text-accent"
       >
         ← {dict.work.backToWork}

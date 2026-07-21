@@ -125,7 +125,7 @@ export default async function ServicePage({
           {service.proof}
         </p>
         <Link
-          href={`/${locale}/work/${service.proofLink.slug}`}
+          href={`/${locale}/experience/${service.proofLink.slug}`}
           className="mt-4 inline-block font-mono text-sm font-medium text-ink underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent"
         >
           {service.proofLink.label} →

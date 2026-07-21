@@ -118,7 +118,7 @@ export default async function Home({
           {projects.map((project, i) => (
             <li key={project.slug}>
               <Link
-                href={`/${locale}/work/${project.slug}`}
+                href={`/${locale}/experience/${project.slug}`}
                 className="group grid gap-4 border-b-2 border-ink px-5 py-8 transition-colors hover:bg-chartreuse sm:grid-cols-[auto_1fr_auto] sm:items-baseline sm:gap-8 sm:px-8"
               >
                 <span className="font-mono text-sm text-ink/40">
