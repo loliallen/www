@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
@@ -5,6 +6,19 @@ import { getDictionary } from "./dictionaries";
 import { projects } from "@/content/work/projects";
 import { serviceSlugs, getServiceLabels } from "@/content/services";
 import { ContactDialog } from "@/components/ContactDialog";
+import { metadataFor } from "@/site/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  // Title omitted on purpose: the layout's `title.default` is the homepage title,
+  // and supplying one here would run it through the template and double the name.
+  return metadataFor("home", lang);
+}
 
 /** Locale-independent - these are technology names. */
 const SKILLS = [

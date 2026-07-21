@@ -5,6 +5,7 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { nameFor, profile } from "@/content/profile";
 import { getResume } from "@/content/resume";
 import { PrintButton } from "@/components/PrintButton";
+import { metadataFor } from "@/site/metadata";
 
 export async function generateMetadata({
   params,
@@ -13,7 +14,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!isLocale(lang)) return {};
-  return { title: `${nameFor(lang)} - CV` };
+  const r = getResume(lang);
+  return metadataFor("cv", lang, { title: "CV", description: r.summary });
 }
 
 export default async function CVPage({

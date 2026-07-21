@@ -9,6 +9,7 @@ import {
   isLocale,
   type Locale,
 } from "@/i18n/config";
+import { nameFor } from "@/content/profile";
 import { getDictionary } from "./dictionaries";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -44,20 +45,29 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
+  const name = nameFor(lang);
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: dict.meta.title,
-    description: dict.meta.description,
-    alternates: {
-      canonical: `/${lang}`,
-      languages: Object.fromEntries(
-        LOCALES.map((l) => [LOCALE_META[l].bcp47, `/${l}`]),
-      ),
+    // Deliberately no `alternates` here. Metadata merges down the route tree, so
+    // a canonical set on the layout leaks into every page that omits one - which
+    // is how /cv and the case studies came to canonicalize to the homepage.
+    // Canonicals come from metadataFor() on each page instead.
+    title: {
+      template: `%s | ${name}`,
+      default: dict.meta.title,
     },
+    description: dict.meta.description,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    },
+    verification: process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : undefined,
     openGraph: {
-      title: dict.meta.title,
-      description: dict.meta.description,
+      siteName: name,
       locale: LOCALE_META[lang].bcp47,
       type: "website",
     },

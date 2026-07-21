@@ -15,6 +15,7 @@ import {
 } from "@/content/services";
 import { profile, nameFor } from "@/content/profile";
 import { ContactDialog } from "@/components/ContactDialog";
+import { metadataFor } from "@/site/metadata";
 
 export const dynamicParams = false;
 
@@ -32,23 +33,11 @@ export async function generateMetadata({
   const service = getService(lang, slug);
   if (!service) return {};
 
-  return {
+  return metadataFor("serviceItem", lang, {
+    slug,
     title: service.metaTitle,
     description: service.metaDescription,
-    alternates: {
-      canonical: `/${lang}/services/${slug}`,
-      languages: Object.fromEntries(
-        LOCALES.map((l) => [LOCALE_META[l].bcp47, `/${l}/services/${slug}`]),
-      ),
-    },
-    openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
-      url: `${SITE_URL}/${lang}/services/${slug}`,
-      locale: LOCALE_META[lang].bcp47,
-      type: "website",
-    },
-  };
+  });
 }
 
 export default async function ServicePage({

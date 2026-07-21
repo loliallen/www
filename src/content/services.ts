@@ -50,7 +50,7 @@ const SERVICES: Record<Locale, Service[]> = {
   en: [
     {
       slug: "backend-distributed-systems",
-      metaTitle: "Backend & Distributed Systems Engineering - Maxim Kasakin",
+      metaTitle: "Backend & Distributed Systems Engineering",
       metaDescription:
         "Senior backend engineering for scalable, high-load systems in Go and Node.js - microservices, message queues, caching and observability. Available for contract and advisory work.",
       h1: "Backend & Distributed Systems",
@@ -98,7 +98,7 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "ai-platforms-orchestration",
-      metaTitle: "AI Platform & Workflow Orchestration Engineering - Maxim Kasakin",
+      metaTitle: "AI Platform & Workflow Orchestration Engineering",
       metaDescription:
         "Build durable AI workflow engines and multi-model orchestration pipelines - LLM, image, video and audio - with failover, resume-from-checkpoint and idempotent delivery.",
       h1: "AI Platforms & Orchestration",
@@ -144,7 +144,7 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "blockchain-web3",
-      metaTitle: "Blockchain & Web3 Backend Engineering - Maxim Kasakin",
+      metaTitle: "Blockchain & Web3 Backend Engineering",
       metaDescription:
         "Wallet backends, custom Cosmos SDK modules, smart-contract integration and on-chain exchanges. Go and Web3 engineering for production crypto products.",
       h1: "Blockchain & Web3",
@@ -191,7 +191,7 @@ const SERVICES: Record<Locale, Service[]> = {
   ru: [
     {
       slug: "backend-distributed-systems",
-      metaTitle: "Бэкенд и распределённые системы - Максим Касакин",
+      metaTitle: "Бэкенд и распределённые системы",
       metaDescription:
         "Senior-разработка бэкенда для масштабируемых высоконагруженных систем на Go и Node.js - микросервисы, очереди, кэширование, наблюдаемость. Открыт к проектной и консультационной работе.",
       h1: "Бэкенд и распределённые системы",
@@ -239,7 +239,7 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "ai-platforms-orchestration",
-      metaTitle: "AI-платформы и оркестрация воркфлоу - Максим Касакин",
+      metaTitle: "AI-платформы и оркестрация воркфлоу",
       metaDescription:
         "Надёжные движки AI-воркфлоу и мультимодельные пайплайны - LLM, изображения, видео и аудио - с фейловером, резюмом по чекпойнтам и идемпотентной доставкой.",
       h1: "AI-платформы и оркестрация",
@@ -285,7 +285,7 @@ const SERVICES: Record<Locale, Service[]> = {
     },
     {
       slug: "blockchain-web3",
-      metaTitle: "Блокчейн и Web3 бэкенд - Максим Касакин",
+      metaTitle: "Блокчейн и Web3 бэкенд",
       metaDescription:
         "Бэкенды кошельков, кастомные модули Cosmos SDK, интеграция смарт-контрактов и ончейн-биржи. Go и Web3 для продакшен крипто-продуктов.",
       h1: "Блокчейн и Web3",
