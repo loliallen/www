@@ -34,7 +34,7 @@ export default async function CVPage({
       {/* Actions - screen only */}
       <div className="mb-8 flex items-center justify-between print:hidden">
         <Link
-          href={`/${locale}`}
+          href={`/${locale}/experience`}
           className="font-mono text-xs uppercase tracking-widest text-ink/60 transition-colors hover:text-accent"
         >
           ← {r.labels.back}

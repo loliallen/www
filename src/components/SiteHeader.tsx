@@ -46,6 +46,12 @@ export function SiteHeader({
             ))}
           </nav>
           <Link
+            href={`${base}/experience`}
+            className="hidden font-mono text-sm uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:block"
+          >
+            {dict.nav.experience}
+          </Link>
+          <Link
             href={`${base}/cv`}
             className="inline-flex items-center gap-1.5 border-2 border-ink bg-ink px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-paper transition-colors hover:bg-chartreuse hover:text-ink"
           >

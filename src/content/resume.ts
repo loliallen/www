@@ -14,6 +14,8 @@ export type ResumeRole = {
   context: string;
   bullets: string[];
   stack: string;
+  /** Case study for this role, if one exists. Links /experience -> /experience/{slug}. */
+  caseStudySlug?: string;
 };
 
 export type Resume = {
@@ -41,6 +43,7 @@ const RESUME: Record<Locale, Resume> = {
     experience: [
       {
         company: "Kineiro LLC",
+        caseStudySlug: "content-automation-platform",
         title: "Software Architect / Tech Lead",
         location: "Kazakhstan",
         period: "Feb 2025 - Present",
@@ -57,6 +60,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "NGINE-LTD",
+        caseStudySlug: "blockchain-wallet-backend",
         title: "Web Development Team Lead",
         location: "Geneva, CH",
         period: "Feb 2023 - Feb 2025",
@@ -72,6 +76,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "Club1111",
+        caseStudySlug: "nft-marketplace-dapp",
         title: "Technical Lead",
         location: "Los Angeles, US",
         period: "Sep 2021 - Oct 2022",
@@ -114,6 +119,7 @@ const RESUME: Record<Locale, Resume> = {
     experience: [
       {
         company: "Kineiro LLC",
+        caseStudySlug: "content-automation-platform",
         title: "Архитектор ПО / Тех-лид",
         location: "Казахстан",
         period: "Февр. 2025 - наст. время",
@@ -130,6 +136,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "NGINE-LTD",
+        caseStudySlug: "blockchain-wallet-backend",
         title: "Тимлид веб-разработки",
         location: "Женева",
         period: "Февр. 2023 - Февр. 2025",
@@ -158,6 +165,7 @@ const RESUME: Record<Locale, Resume> = {
       },
       {
         company: "Club1111",
+        caseStudySlug: "nft-marketplace-dapp",
         title: "Технический лид",
         location: "Лос-Анджелес",
         period: "Сент. 2021 - Окт. 2022",
