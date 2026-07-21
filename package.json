@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "verify:seo": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.10",
