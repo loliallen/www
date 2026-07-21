@@ -1,56 +1,36 @@
 import type { MetadataRoute } from "next";
-import { LOCALES, LOCALE_META, SITE_URL } from "@/i18n/config";
-import { projects } from "@/content/work/projects";
-import { serviceSlugs } from "@/content/services";
+import {
+  DEFAULT_LOCALE,
+  LOCALES,
+  LOCALE_META,
+  SITE_URL,
+} from "@/i18n/config";
+import { indexableEntries, pathFor } from "@/site/routes";
 
-/** Build hreflang alternates for a per-locale path template, e.g. `/{l}/services`. */
-function alternates(pathFor: (l: string) => string) {
-  return {
-    languages: Object.fromEntries(
-      LOCALES.map((l) => [LOCALE_META[l].bcp47, `${SITE_URL}${pathFor(l)}`]),
-    ),
-  };
-}
-
+/**
+ * Derived wholly from the route registry, so it cannot drift: a new route is
+ * listed automatically, and a route marked `indexable: false` (like /cv) drops
+ * out automatically - submitting a noindexed URL is a Search Console error.
+ *
+ * `changeFrequency` and `priority` are deliberately omitted: Google documents
+ * that it ignores both.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [];
+  const lastModified = new Date();
 
-  // Static per-locale paths.
-  const staticPaths = ["", "/services", "/cv"];
-  for (const p of staticPaths) {
-    for (const l of LOCALES) {
-      entries.push({
-        url: `${SITE_URL}/${l}${p}`,
-        changeFrequency: "monthly",
-        priority: p === "" ? 1 : 0.7,
-        alternates: alternates((loc) => `/${loc}${p}`),
-      });
-    }
-  }
-
-  // Work case studies.
-  for (const project of projects) {
-    for (const l of LOCALES) {
-      entries.push({
-        url: `${SITE_URL}/${l}/experience/${project.slug}`,
-        changeFrequency: "monthly",
-        priority: 0.8,
-        alternates: alternates((loc) => `/${loc}/experience/${project.slug}`),
-      });
-    }
-  }
-
-  // Service pages.
-  for (const slug of serviceSlugs) {
-    for (const l of LOCALES) {
-      entries.push({
-        url: `${SITE_URL}/${l}/services/${slug}`,
-        changeFrequency: "monthly",
-        priority: 0.8,
-        alternates: alternates((loc) => `/${loc}/services/${slug}`),
-      });
-    }
-  }
-
-  return entries;
+  return indexableEntries().map(({ key, locale, slug }) => ({
+    url: `${SITE_URL}${pathFor(key, locale, slug)}`,
+    lastModified,
+    alternates: {
+      languages: {
+        ...Object.fromEntries(
+          LOCALES.map((l) => [
+            LOCALE_META[l].bcp47,
+            `${SITE_URL}${pathFor(key, l, slug)}`,
+          ]),
+        ),
+        "x-default": `${SITE_URL}${pathFor(key, DEFAULT_LOCALE, slug)}`,
+      },
+    },
+  }));
 }
