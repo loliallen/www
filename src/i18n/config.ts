@@ -8,8 +8,7 @@ export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = "en";
 
-/** Canonical site origin - used for metadata, sitemap, robots, JSON-LD.
- *  TODO: set this to the real production domain. */
+/** Canonical site origin - used for metadata, sitemap, robots, JSON-LD. */
 export const SITE_URL = "https://maxim.kasakin.tech";
 
 /** Short label, native name + BCP-47 tag (used for <html lang> and hreflang). */

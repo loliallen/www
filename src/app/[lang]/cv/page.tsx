@@ -5,6 +5,7 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { nameFor, profile } from "@/content/profile";
 import { getResume } from "@/content/resume";
 import { PrintButton } from "@/components/PrintButton";
+import { metadataFor } from "@/site/metadata";
 
 export async function generateMetadata({
   params,
@@ -13,7 +14,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!isLocale(lang)) return {};
-  return { title: `${nameFor(lang)} - CV` };
+  const r = getResume(lang);
+  return metadataFor("cv", lang, { title: "CV", description: r.summary });
 }
 
 export default async function CVPage({
@@ -32,7 +34,7 @@ export default async function CVPage({
       {/* Actions - screen only */}
       <div className="mb-8 flex items-center justify-between print:hidden">
         <Link
-          href={`/${locale}`}
+          href={`/${locale}/experience`}
           className="font-mono text-xs uppercase tracking-widest text-ink/60 transition-colors hover:text-accent"
         >
           ← {r.labels.back}

@@ -7,6 +7,7 @@
     "work": "Work",
     "about": "About",
     "contact": "Contact",
+    "experience": "Experience",
     "cv": "CV",
     "skipToContent": "Skip to content"
   },
@@ -21,12 +22,30 @@
   "metrics": {
     "label": "By the numbers",
     "items": [
-      { "value": "−60%", "label": "fewer direct blockchain-node calls - custom cache layer" },
-      { "value": "4× faster", "label": "p95 balance reads, 600→150ms after redesign" },
-      { "value": "~7 yrs", "label": "building high-load distributed systems" },
-      { "value": "1,200/day", "label": "publications, idempotent - zero duplicates on retry" },
-      { "value": "20 models", "label": "text, image, video & audio - failover built in" },
-      { "value": "2w→3d", "label": "release cycle, after a CI/CD overhaul" }
+      {
+        "value": "−60%",
+        "label": "fewer direct blockchain-node calls - custom cache layer"
+      },
+      {
+        "value": "4× faster",
+        "label": "p95 balance reads, 600→150ms after redesign"
+      },
+      {
+        "value": "~7 yrs",
+        "label": "building high-load distributed systems"
+      },
+      {
+        "value": "1,200/day",
+        "label": "publications, idempotent - zero duplicates on retry"
+      },
+      {
+        "value": "20 models",
+        "label": "text, image, video & audio - failover built in"
+      },
+      {
+        "value": "2w→3d",
+        "label": "release cycle, after a CI/CD overhaul"
+      }
     ]
   },
   "work": {
@@ -82,5 +101,12 @@
   "language": {
     "switchTo": "Switch language",
     "current": "Current language"
+  },
+  "experiencePage": {
+    "eyebrow": "Experience",
+    "heading": "Where I've built things",
+    "lead": "Nearly 7 years of backend and distributed systems - across AI platforms, fintech and Web3. Each role below links to a case study of the system I built there.",
+    "caseStudy": "Read the case study",
+    "cvCta": "Prefer a one-page PDF? Open the CV."
   }
 }

@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  LOCALES,
-  LOCALE_META,
-  SITE_URL,
-  isLocale,
-  type Locale,
-} from "@/i18n/config";
+import { isLocale, type Locale } from "@/i18n/config";
 import { getServices, getServiceLabels } from "@/content/services";
+import { metadataFor } from "@/site/metadata";
 
 export async function generateMetadata({
   params,
@@ -20,25 +15,9 @@ export async function generateMetadata({
   const t = getServiceLabels(lang);
   const title =
     lang === "en"
-      ? "Services - Backend, AI & Web3 Engineering | Maxim Kasakin"
-      : "Услуги - бэкенд, AI и Web3 | Максим Касакин";
-  return {
-    title,
-    description: t.indexLead,
-    alternates: {
-      canonical: `/${lang}/services`,
-      languages: Object.fromEntries(
-        LOCALES.map((l) => [LOCALE_META[l].bcp47, `/${l}/services`]),
-      ),
-    },
-    openGraph: {
-      title,
-      description: t.indexLead,
-      url: `${SITE_URL}/${lang}/services`,
-      locale: LOCALE_META[lang].bcp47,
-      type: "website",
-    },
-  };
+      ? "Services - Backend, AI & Web3 Engineering"
+      : "Услуги - бэкенд, AI и Web3";
+  return metadataFor("services", lang, { title, description: t.indexLead });
 }
 
 export default async function ServicesIndex({
