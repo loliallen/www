@@ -43,6 +43,11 @@ export function metadataFor(
       url: `${SITE_URL}${canonical}`,
       locale: LOCALE_META[locale].bcp47,
       type: "website",
+      // Named explicitly, not inherited: Next only passes a layout's openGraph
+      // (and with it the opengraph-image file convention) down to pages that set
+      // no openGraph of their own. Every page here sets one, so without this only
+      // the homepage would render a link card.
+      images: [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630 }],
     },
   };
 }

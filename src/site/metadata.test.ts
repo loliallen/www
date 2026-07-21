@@ -35,6 +35,14 @@ describe("metadataFor", () => {
     );
   });
 
+  it("attaches the locale OG image to every page", () => {
+    // Next only inherits a layout's openGraph (and with it the file-convention
+    // opengraph-image) when a page sets none at all. Every page here sets one,
+    // so the image has to be named explicitly or only the homepage gets a card.
+    expect(metadataFor("serviceItem", "ru", { slug: "blockchain-web3" }).openGraph?.images)
+      .toEqual([{ url: "/ru/opengraph-image", width: 1200, height: 630 }]);
+  });
+
   it("passes through title and description when given", () => {
     const meta = metadataFor("services", "en", { title: "Services", description: "d" });
     expect(meta.title).toBe("Services");
