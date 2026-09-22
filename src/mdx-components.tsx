@@ -50,13 +50,16 @@ const components: MDXComponents = {
       {children}
     </blockquote>
   ),
+  // Inline code only. A fenced block renders <pre><code>, so this styling would
+  // land inside the dark block too - plum on near-black - if `pre` did not
+  // reset it below.
   code: ({ children }) => (
     <code className="rounded bg-ink/5 px-1.5 py-0.5 font-mono text-[0.9em] text-plum">
       {children}
     </code>
   ),
   pre: ({ children }) => (
-    <pre className="mt-6 overflow-x-auto rounded-none border-2 border-ink bg-ink p-5 font-mono text-sm text-paper">
+    <pre className="mt-6 overflow-x-auto rounded-none border-2 border-ink bg-ink p-5 font-mono text-sm text-paper [&>code]:bg-transparent [&>code]:p-0 [&>code]:text-[1em] [&>code]:text-paper">
       {children}
     </pre>
   ),
