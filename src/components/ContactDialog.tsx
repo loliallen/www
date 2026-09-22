@@ -12,7 +12,14 @@ export type ContactDialogLabels = {
   fastestLabel: string;
 };
 
-export function ContactDialog({ labels }: { labels: ContactDialogLabels }) {
+export function ContactDialog({
+  labels,
+  email = profile.email,
+}: {
+  labels: ContactDialogLabels;
+  /** Overrides the default inbox - the blog points at its own. */
+  email?: string;
+}) {
   const ref = useRef<HTMLDialogElement>(null);
   const open = () => ref.current?.showModal();
   const close = () => ref.current?.close();
@@ -20,8 +27,8 @@ export function ContactDialog({ labels }: { labels: ContactDialogLabels }) {
   const contacts = [
     {
       label: labels.emailLabel,
-      value: profile.email,
-      href: `mailto:${profile.email}`,
+      value: email,
+      href: `mailto:${email}`,
       external: false,
       fastest: false,
     },

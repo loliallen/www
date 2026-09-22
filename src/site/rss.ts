@@ -48,7 +48,8 @@ export function renderFeed(locale: Locale, labels: { title: string; description:
     `    <link>${SITE_URL}${pathFor("blog", locale)}</link>`,
     `    <description>${escapeXml(labels.description)}</description>`,
     `    <language>${LOCALE_META[locale].bcp47}</language>`,
-    `    <managingEditor>${profile.email} (${escapeXml(nameFor(locale))})</managingEditor>`,
+    // The blog's own inbox, not the hiring one - this feed is the blog.
+    `    <managingEditor>${profile.gameServerEmail} (${escapeXml(nameFor(locale))})</managingEditor>`,
     `    <atom:link href="${self}" rel="self" type="application/rss+xml" />`,
     ...items,
     "  </channel>",

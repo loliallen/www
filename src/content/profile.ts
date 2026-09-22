@@ -11,6 +11,12 @@ export const profile = {
     ru: "Максим Касакин",
   } satisfies Record<Locale, string>,
   email: "maxim.kasakin@yahoo.com",
+  /**
+   * Separate inbox for game-server work, used by the blog and the posts in it.
+   * Those enquiries arrive from a different audience than hiring does, and
+   * keeping them apart means neither gets buried in the other.
+   */
+  gameServerEmail: "dayz@kasakin.tech",
   links: [
     {
       label: "GitHub",
@@ -28,6 +34,14 @@ export const profile = {
       label: "LinkedIn",
       href: "https://linkedin.com/in/maxim-kasakin",
       handle: "maxim-kasakin",
+      fastest: false,
+    },
+    {
+      label: "Discord",
+      // A direct-message link needs the numeric user id; the username alone
+      // does not resolve to a URL.
+      href: "https://discord.com/users/320536108008210433",
+      handle: "17",
       fastest: false,
     },
   ],

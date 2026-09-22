@@ -46,3 +46,13 @@ describe("renderFeed", () => {
     expect(hostile).toContain("<description>a &lt; b</description>");
   });
 });
+
+describe("renderFeed contacts", () => {
+  it("names the blog's own inbox, not the hiring one", () => {
+    // Game-server enquiries and hiring threads go to different addresses; a
+    // feed reader that surfaces managingEditor must show the blog's.
+    expect(renderFeed("ru", labels)).toContain(
+      "<managingEditor>dayz@kasakin.tech (Максим Касакин)</managingEditor>",
+    );
+  });
+});

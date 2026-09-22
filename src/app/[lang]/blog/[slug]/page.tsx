@@ -65,7 +65,7 @@ export default async function BlogPostPage({
       "@type": "Person",
       name: nameFor(locale),
       url: SITE_URL,
-      email: `mailto:${profile.email}`,
+      email: `mailto:${profile.gameServerEmail}`,
       sameAs: profile.links.map((l) => l.href),
     },
   };
@@ -133,6 +133,7 @@ export default async function BlogPostPage({
         </h2>
         <p className="mt-3 text-paper/80">{post.cta.body}</p>
         <ContactDialog
+          email={profile.gameServerEmail}
           labels={{
             trigger: post.cta.button,
             title: t.contactTitle,
