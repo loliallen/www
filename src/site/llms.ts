@@ -3,6 +3,7 @@ import { nameFor, profile } from "@/content/profile";
 import { getResume } from "@/content/resume";
 import { projects } from "@/content/work/projects";
 import { getServices } from "@/content/services";
+import { posts } from "@/content/blog/posts";
 import { pathFor } from "./routes";
 
 const L = DEFAULT_LOCALE;
@@ -36,6 +37,15 @@ export function renderLlmsTxt(): string {
     "",
     ...getServices(L).map(
       (s) => `- [${s.h1}](${url(pathFor("serviceItem", L, s.slug))}): ${s.tagline}`,
+    ),
+    "",
+    "## Blog",
+    "",
+    // Written for one market in its own language, so each is linked in its own
+    // locale rather than the site default.
+    ...posts.map(
+      (p) =>
+        `- [${p.metaTitle}](${url(pathFor("blogPost", p.locale, p.slug))}) (${p.locale}): ${p.metaDescription}`,
     ),
     "",
     "## Contact",

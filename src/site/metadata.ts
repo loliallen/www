@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import {
-  DEFAULT_LOCALE,
-  LOCALES,
-  LOCALE_META,
-  SITE_URL,
-  type Locale,
-} from "@/i18n/config";
-import { ROUTES, pathFor, type RouteKey } from "./routes";
+import { DEFAULT_LOCALE, LOCALE_META, SITE_URL, type Locale } from "@/i18n/config";
+import { ROUTES, localesFor, pathFor, type RouteKey } from "./routes";
 
 /**
  * Builds the SEO-critical half of a page's Metadata from the route registry.
@@ -19,22 +13,38 @@ import { ROUTES, pathFor, type RouteKey } from "./routes";
 export function metadataFor(
   key: RouteKey,
   locale: Locale,
-  opts: { slug?: string; title?: string; description?: string } = {},
+  opts: {
+    slug?: string;
+    title?: string;
+    description?: string;
+    /** Absolute or root-relative RSS URL to advertise in <head>. */
+    feed?: string;
+  } = {},
 ): Metadata {
-  const { slug, title, description } = opts;
+  const { slug, title, description, feed } = opts;
   const canonical = pathFor(key, locale, slug);
 
+  // Only the locales this route actually serves: a hreflang pointing at a URL
+  // that 404s costs more than a missing translation.
+  const available = localesFor(key, slug);
   const languages: Record<string, string> = {};
-  for (const l of LOCALES) {
+  for (const l of available) {
     languages[LOCALE_META[l].bcp47] = pathFor(key, l, slug);
   }
-  // Tells Google which version to serve a user whose language matches neither.
-  languages["x-default"] = pathFor(key, DEFAULT_LOCALE, slug);
+  // Tells Google which version to serve a user whose language matches none.
+  const fallback = available.includes(DEFAULT_LOCALE)
+    ? DEFAULT_LOCALE
+    : available[0];
+  languages["x-default"] = pathFor(key, fallback, slug);
 
   return {
     ...(title !== undefined && { title }),
     ...(description !== undefined && { description }),
-    alternates: { canonical, languages },
+    alternates: {
+      canonical,
+      languages,
+      ...(feed && { types: { "application/rss+xml": feed } }),
+    },
     // Left undefined on indexable routes so the layout's googleBot defaults apply.
     ...(ROUTES[key].indexable ? {} : { robots: { index: false, follow: true } }),
     openGraph: {

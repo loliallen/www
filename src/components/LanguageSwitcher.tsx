@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LOCALES, LOCALE_META, type Locale } from "@/i18n/config";
+import { LOCALE_META, type Locale } from "@/i18n/config";
+import { localesForPath } from "@/site/locale-scope";
 
 /** Swaps the leading /<locale> segment, preserving the rest of the path. */
 function pathForLocale(pathname: string, locale: Locale): string {
@@ -21,6 +22,9 @@ export function LanguageSwitcher({
   switchLabel: string;
 }) {
   const pathname = usePathname() ?? `/${current}`;
+  // Pages that exist in one language only must not offer the other: the switch
+  // would land on a URL that was never generated.
+  const available = localesForPath(pathname);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -74,7 +78,7 @@ export function LanguageSwitcher({
           aria-label={switchLabel}
           className="absolute right-0 top-full z-50 mt-2 min-w-[8.5rem] border-2 border-ink bg-paper py-1 shadow-[4px_4px_0_0_var(--color-ink)]"
         >
-          {LOCALES.map((locale) => {
+          {available.map((locale) => {
             const isActive = locale === current;
             return (
               <li key={locale} role="none">

@@ -50,3 +50,23 @@ describe("metadataFor", () => {
     expect(meta.openGraph?.title).toBe("Services");
   });
 });
+
+describe("metadataFor on locale-restricted routes", () => {
+  it("omits hreflang for a locale the route does not serve", () => {
+    const languages = metadataFor("blogPost", "ru", {
+      slug: "hotlinetrade-dayz-portal",
+    }).alternates?.languages;
+    expect(languages).toEqual({
+      ru: "/ru/blog/hotlinetrade-dayz-portal",
+      "x-default": "/ru/blog/hotlinetrade-dayz-portal",
+    });
+  });
+
+  it("points x-default at the only locale a route has", () => {
+    // x-default normally falls back to English. The blog has no English, so it
+    // must fall back to what exists rather than to a URL that 404s.
+    expect(metadataFor("blog", "ru").alternates?.languages?.["x-default"]).toBe(
+      "/ru/blog",
+    );
+  });
+});

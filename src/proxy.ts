@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { LOCALES, DEFAULT_LOCALE } from "@/i18n/config";
+import { vanityRedirect } from "@/site/vanity";
 
 function getLocale(request: NextRequest): string {
   const headers: Record<string, string> = {};
@@ -20,6 +21,10 @@ function getLocale(request: NextRequest): string {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Vanity hosts first: they must not pick up a locale prefix on the way.
+  const vanity = vanityRedirect(request.headers.get("host"), pathname);
+  if (vanity) return NextResponse.redirect(vanity, 308);
 
   // Already locale-prefixed? Let it through.
   const hasLocale = LOCALES.some(

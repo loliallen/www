@@ -1,5 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { ROUTES, pathFor, indexableEntries } from "./routes";
+import {
+  ROUTES,
+  pathFor,
+  indexableEntries,
+  localesFor,
+  type RouteKey,
+} from "./routes";
+import { localesForPath } from "./locale-scope";
+import { LOCALES } from "@/i18n/config";
 
 describe("pathFor", () => {
   it("builds locale-prefixed static paths", () => {
@@ -42,5 +50,53 @@ describe("indexableEntries", () => {
     for (const e of entries) {
       if (ROUTES[e.key].params) expect(e.slug).toBeTruthy();
     }
+  });
+});
+
+describe("locale-restricted routes", () => {
+  it("defaults to every locale when a route names none", () => {
+    expect(localesFor("experience")).toEqual([...LOCALES]);
+  });
+
+  it("honours the locales a route does name", () => {
+    // The HotlineTrade post addresses Russian-speaking server owners; an
+    // English copy would be a page with no audience, so the route has none.
+    expect(localesFor("blogPost")).toEqual(["ru"]);
+  });
+
+  it("publishes the blog index only where posts exist", () => {
+    // An index in a locale with nothing in it is a thin page competing for
+    // nothing, so it must not be generated or listed at all.
+    expect(localesFor("blog")).toEqual(["ru"]);
+  });
+
+  it("never yields a sitemap entry in a locale the route does not serve", () => {
+    const blog = indexableEntries().filter(
+      (e) => e.key === "blog" || e.key === "blogPost",
+    );
+    expect(blog.length).toBeGreaterThan(0);
+    expect(blog.every((e) => e.locale === "ru")).toBe(true);
+  });
+});
+
+describe("localesForPath", () => {
+  it("agrees with the registry on every route, locale and slug", () => {
+    // The language switcher is a client component and cannot import the
+    // registry without dragging every project and service into the bundle.
+    // It reads this function instead, so the two must not drift apart.
+    for (const key of Object.keys(ROUTES) as RouteKey[]) {
+      const slugs = ROUTES[key].params ? ROUTES[key].params!() : [undefined];
+      for (const slug of slugs) {
+        for (const locale of localesFor(key, slug)) {
+          expect(localesForPath(pathFor(key, locale, slug))).toEqual(
+            localesFor(key, slug),
+          );
+        }
+      }
+    }
+  });
+
+  it("falls back to every locale on an unknown path", () => {
+    expect(localesForPath("/ru/nothing-here")).toEqual([...LOCALES]);
   });
 });

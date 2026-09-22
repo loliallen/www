@@ -27,3 +27,24 @@ describe("sitemap", () => {
     }
   });
 });
+
+describe("sitemap on locale-restricted routes", () => {
+  const entries = sitemap();
+
+  it("lists the Russian blog and not an English one that does not exist", () => {
+    const urls = entries.map((e) => e.url);
+    expect(urls).toContain("https://maxim.kasakin.tech/ru/blog");
+    expect(urls).toContain(
+      "https://maxim.kasakin.tech/ru/blog/hotlinetrade-dayz-portal",
+    );
+    expect(urls.some((u) => u.includes("/en/blog"))).toBe(false);
+  });
+
+  it("does not advertise an English alternate for it", () => {
+    const post = entries.find((e) => e.url.includes("/blog/"));
+    expect(post?.alternates?.languages?.en).toBeUndefined();
+    expect(post?.alternates?.languages?.["x-default"]).toBe(
+      "https://maxim.kasakin.tech/ru/blog/hotlinetrade-dayz-portal",
+    );
+  });
+});

@@ -21,6 +21,9 @@ const SERVICES = [
   "blockchain-web3",
 ];
 
+const POSTS = [["hotlinetrade-dayz-portal", "ru"]];
+const BLOG_LOCALES = ["ru"];
+
 const failures = [];
 const fail = (msg) => failures.push(msg);
 
@@ -33,6 +36,9 @@ const canonicalOf = (html) =>
   html.match(/rel="canonical" href="([^"]*)"/)?.[1] ?? null;
 const hreflangsOf = (html) =>
   [...html.matchAll(/hrefLang="([^"]*)"/gi)].map((m) => m[1]);
+
+const sitemap = await get("/sitemap.xml");
+const sitemapHas = (url) => sitemap.body.includes(`<loc>${url}</loc>`);
 
 for (const locale of LOCALES) {
   const routes = [
@@ -76,7 +82,69 @@ for (const locale of LOCALES) {
   if (old.status !== 308) fail(`/${locale}/work/...: expected 308, got ${old.status}`);
 }
 
-const sitemap = await get("/sitemap.xml");
+// The blog index exists only where posts do, and its feed must be valid.
+for (const locale of BLOG_LOCALES) {
+  const index = await get(`/${locale}/blog`);
+  if (index.status !== 200) fail(`/${locale}/blog: expected 200, got ${index.status}`);
+  if (!index.body.includes(`/${locale}/blog/feed.xml`)) {
+    fail(`/${locale}/blog: does not advertise its RSS feed`);
+  }
+  if (!sitemapHas(`${DOMAIN}/${locale}/blog`)) fail(`sitemap.xml is missing /${locale}/blog`);
+
+  const feed = await get(`/${locale}/blog/feed.xml`);
+  if (feed.status !== 200) fail(`/${locale}/blog/feed.xml: expected 200, got ${feed.status}`);
+  if (!feed.body.startsWith("<?xml")) fail(`/${locale}/blog/feed.xml: not XML`);
+  if (feed.body.includes("localhost")) {
+    fail(`/${locale}/blog/feed.xml: links point at localhost, not the production domain`);
+  }
+}
+
+for (const locale of LOCALES.filter((l) => !BLOG_LOCALES.includes(l))) {
+  const empty = await get(`/${locale}/blog`);
+  if (empty.status !== 404) {
+    fail(`/${locale}/blog: expected 404 (no posts in that language), got ${empty.status}`);
+  }
+}
+
+// Posts are published in one language only. The other locale's URL must not
+// exist, and the published one must not advertise it in hreflang.
+for (const [slug, locale] of POSTS) {
+  const path = `/${locale}/blog/${slug}`;
+  const { status, body } = await get(path);
+
+  if (status !== 200) {
+    fail(`${path}: expected 200, got ${status}`);
+  } else {
+    const canonical = canonicalOf(body);
+    if (canonical !== `${DOMAIN}${path}`) {
+      fail(`${path}: canonical is "${canonical}", expected "${DOMAIN}${path}"`);
+    }
+
+    const hreflangs = hreflangsOf(body);
+    for (const want of [locale, "x-default"]) {
+      if (!hreflangs.includes(want)) fail(`${path}: missing hreflang "${want}"`);
+    }
+    for (const other of LOCALES.filter((l) => l !== locale)) {
+      if (hreflangs.includes(other)) {
+        fail(`${path}: advertises hreflang "${other}", but that page does not exist`);
+      }
+    }
+
+    if (!body.includes(`${DOMAIN}/${locale}/opengraph-image`)) {
+      fail(`${path}: missing the ${locale} og:image - the link card would be blank`);
+    }
+  }
+
+  for (const other of LOCALES.filter((l) => l !== locale)) {
+    const missing = await get(`/${other}/blog/${slug}`);
+    if (missing.status !== 404) {
+      fail(`/${other}/blog/${slug}: expected 404, got ${missing.status}`);
+    }
+  }
+
+  if (!sitemapHas(`${DOMAIN}${path}`)) fail(`sitemap.xml is missing ${path}`);
+}
+
 if (sitemap.body.includes(DEAD)) fail(`sitemap.xml references the dead domain ${DEAD}`);
 if (/<loc>[^<]*\/cv<\/loc>/.test(sitemap.body)) {
   fail("sitemap.xml lists /cv, which is noindex - a Search Console error");

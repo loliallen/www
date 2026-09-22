@@ -1,6 +1,7 @@
 import { LOCALES, type Locale } from "@/i18n/config";
 import { projects } from "@/content/work/projects";
 import { serviceSlugs } from "@/content/services";
+import { posts, postSlugs, getPost } from "@/content/blog/posts";
 
 /** Which funnel a route serves. Clients enter at /services, recruiters at /experience. */
 export type Audience = "client" | "recruiter" | "shared";
@@ -11,6 +12,8 @@ export type RouteKey =
   | "experienceItem"
   | "services"
   | "serviceItem"
+  | "blog"
+  | "blogPost"
   | "cv";
 
 export type RouteDef = {
@@ -21,6 +24,14 @@ export type RouteDef = {
   audience: Audience;
   /** Present only on dynamic routes. Supplies every slug the route expands to. */
   params?: () => string[];
+  /**
+   * Locales this route is published in, per slug. Absent means all of them.
+   * A route that serves fewer must not appear in the others' hreflang or in
+   * the sitemap: pointing Google at a URL that 404s is worse than having no
+   * translation at all. Called without a slug it answers for the route as a
+   * whole - the union over its slugs.
+   */
+  locales?: (slug?: string) => readonly Locale[];
   /** Breadcrumb parent. Absent on the root. */
   parent?: RouteKey;
 };
@@ -62,6 +73,26 @@ export const ROUTES: Record<RouteKey, RouteDef> = {
     parent: "services",
     params: () => [...serviceSlugs],
   },
+  // The blog is published only in the languages it actually has posts in: an
+  // empty index in another locale would be a thin page competing for nothing.
+  blog: {
+    path: () => "/blog",
+    indexable: true,
+    audience: "client",
+    parent: "home",
+    locales: () => postLocales(),
+  },
+  blogPost: {
+    path: (slug) => `/blog/${slug}`,
+    indexable: true,
+    audience: "client",
+    parent: "blog",
+    params: () => [...postSlugs],
+    locales: (slug) => {
+      const post = slug ? getPost(slug) : undefined;
+      return post ? [post.locale] : postLocales();
+    },
+  },
   // The CV is a print -> PDF artifact, not a search landing page. It renders the
   // same roles as /experience, so indexing both would make them compete.
   cv: {
@@ -71,6 +102,17 @@ export const ROUTES: Record<RouteKey, RouteDef> = {
     parent: "home",
   },
 };
+
+/** Locales the blog has posts in, in the order the site declares its locales. */
+function postLocales(): Locale[] {
+  const present = new Set(posts.map((p) => p.locale));
+  return LOCALES.filter((l) => present.has(l));
+}
+
+/** The locales a route is published in - every locale unless it says otherwise. */
+export function localesFor(key: RouteKey, slug?: string): Locale[] {
+  return [...(ROUTES[key].locales?.(slug) ?? LOCALES)];
+}
 
 /** Locale-prefixed path for a route, e.g. `/en/experience/nft-marketplace-dapp`. */
 export function pathFor(key: RouteKey, locale: Locale, slug?: string): string {
@@ -90,8 +132,8 @@ export function indexableEntries(): Array<{
     if (!route.indexable) continue;
 
     const slugs = route.params ? route.params() : [undefined];
-    for (const locale of LOCALES) {
-      for (const slug of slugs) {
+    for (const slug of slugs) {
+      for (const locale of localesFor(key, slug)) {
         entries.push({ key, locale, slug });
       }
     }

@@ -9,7 +9,8 @@
     "contact": "Contact",
     "experience": "Experience",
     "cv": "CV",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "blog": "Blog"
   },
   "hero": {
     "eyebrow": "Staff software engineer · backend & distributed systems",
@@ -108,5 +109,13 @@
     "lead": "Nearly 7 years of backend and distributed systems - across AI platforms, fintech and Web3. Each role below links to a case study of the system I built there.",
     "caseStudy": "Read the case study",
     "cvCta": "Prefer a one-page PDF? Open the CV."
+  },
+  "blogPage": {
+    "eyebrow": "Blog",
+    "heading": "Notes from the work",
+    "lead": "Long-form write-ups of projects I ran: what the constraint was, what I built against it, and what it cost.",
+    "readPost": "Read the post",
+    "feedLabel": "RSS feed",
+    "empty": "Nothing published in this language yet."
   }
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { nameFor } from "@/content/profile";
+import { localesFor } from "@/site/routes";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function SiteHeader({
@@ -12,6 +13,8 @@ export function SiteHeader({
   dict: Dictionary;
 }) {
   const base = `/${locale}`;
+  // Hidden where the blog has no posts: the link would lead to a 404.
+  const hasBlog = localesFor("blog").includes(locale);
   const navItems = [
     { href: `${base}#work`, label: dict.nav.work },
     { href: `${base}#about`, label: dict.nav.about },
@@ -45,6 +48,14 @@ export function SiteHeader({
               </a>
             ))}
           </nav>
+          {hasBlog && (
+            <Link
+              href={`${base}/blog`}
+              className="hidden font-mono text-sm uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:block"
+            >
+              {dict.nav.blog}
+            </Link>
+          )}
           <Link
             href={`${base}/experience`}
             className="hidden font-mono text-sm uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:block"
